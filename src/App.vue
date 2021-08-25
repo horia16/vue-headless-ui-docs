@@ -1,30 +1,31 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="text-white">
+    <nav-bar />
+    <div class="flex h-full  mx-auto ">
+      <div class="flex max-w-xs w-full">
+        <drawer />
+      </div>
+      <div class="flex flex-col   flex-grow">
+        <router-view />
+      </div>
+    </div>
+    <app-footer />
   </div>
-  <router-view/>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import { defineComponent } from "vue";
+import AppFooter from "./components/layout/AppFooter.vue";
+import Drawer from "./components/layout/Drawer.vue";
+import NavBar from "./components/layout/NavBar.vue";
 
-#nav {
-  padding: 30px;
-}
+export default defineComponent({
+  components: { NavBar, AppFooter, Drawer },
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  setup() {
+    return {};
+  },
+});
+</script>
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style></style>
