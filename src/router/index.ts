@@ -19,6 +19,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/components/:component",
     component: ComponentView,
+    props: true,
   },
 ];
 

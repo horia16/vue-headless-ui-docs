@@ -1,7 +1,7 @@
 <template>
   <div class="px-4">
-    <div class="flex justify-center">
-      <img src="@/assets/logo-text.png" alt="Headless UI logo" width="400" />
+    <div class="flex justify-center p-8">
+      <img src="@/assets/logo.svg" alt="Headless UI logo" width="300" />
     </div>
     <div class="mb-4">
       <h1 class="font-bold text-2xl ">
