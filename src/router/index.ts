@@ -29,3 +29,7 @@ const router = createRouter({
 });
 
 export default router;
+
+router.beforeEach(() => {
+  window.scrollTo(0, 0);
+});

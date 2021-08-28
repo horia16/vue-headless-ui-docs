@@ -12,7 +12,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      ring: ['focus-visible'],
+    }
   },
   plugins: [],
 }

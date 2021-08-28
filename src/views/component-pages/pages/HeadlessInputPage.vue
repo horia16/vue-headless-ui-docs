@@ -2,6 +2,7 @@
   <page-structure
     title="Headless Input"
     description="A rudimentary and accessible input complete with form validation, labels and error messages."
+    :structure="structure"
   >
     <div class="flex justify-center">
       <div class="bg-white p-8 rounded-lg shadow-xl">
@@ -59,7 +60,25 @@ export default defineComponent({
       if (v) return true;
       return "This field is required.";
     }
-    return { model, required };
+
+    const structure = [
+      {
+        title: "Component Preview",
+        id: "componentPreview",
+        children: [],
+      },
+      {
+        title: "Component Structure",
+        id: "componentStructure",
+        children: [
+          {
+            title: "Test Child",
+            id: "testChild",
+          },
+        ],
+      },
+    ];
+    return { model, required, structure };
   },
 });
 </script>
