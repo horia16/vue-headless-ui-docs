@@ -25,12 +25,14 @@
           <accordion title="On the page" openByDefault class="mb-8">
             <ul>
               <li v-for="(element, index) in structure" :key="index" class="">
-                <a :href="`#${element.id}`" class="flex flex-col my-2 font-light">
+                <a :href="`#${element.id}`" class="flex flex-col my-2 font-light" @click="isDrawerOpen = false">
                   <div>{{ index + 1 }}. {{ element.title }}</div>
                 </a>
                 <ul class="ml-4 mt-1">
                   <li v-for="(child, index2) in element.children" :key="index2" class="">
-                    <a :href="`#${child.id}`" class="font-thin">{{ index + 1 }}.{{ index2 + 1 }}. {{ child.title }}</a>
+                    <a :href="`#${child.id}`" class="font-thin" @click="isDrawerOpen = false"
+                      >{{ index + 1 }}.{{ index2 + 1 }}. {{ child.title }}</a
+                    >
                   </li>
                 </ul>
               </li>
@@ -48,10 +50,10 @@
         <h2 class="mt-4 font-light text-lg text-gray-300">
           {{ description }}
         </h2>
+        <id-scroll id="componentPreview" top="-6rem" />
         <div
           class=" rounded mt-8 transition-all ring-4 ring-white ring-opacity-30"
           :class="tab == 0 ? gradient : 'bg-black-900'"
-          id="componentPreview"
         >
           <headless-tabs v-model="tab" #default="{currentTab}">
             <headless-tab-switches class="flex gap-2 px-4 mb-4">
@@ -79,6 +81,9 @@
           </headless-tabs>
         </div>
       </div>
+      <div class="p-4">
+        <slot name="docs" />
+      </div>
       <div v-for="x in 100" :key="x" class="p-10">{{ x }}</div>
     </div>
   </div>
@@ -86,11 +91,12 @@
 <script lang="ts">
 import { isDrawerOpen } from "@/hooks/drawer";
 import { defineComponent, PropType, ref } from "vue";
+import IdScroll from "../functional/IdScroll.vue";
 import Accordion from "../user-interface/Accordion.vue";
 import CodeBlock from "../user-interface/CodeBlock.vue";
 
 export default defineComponent({
-  components: { CodeBlock, Accordion },
+  components: { CodeBlock, Accordion, IdScroll },
   props: {
     title: { type: String, default: "Component Title" },
     description: {

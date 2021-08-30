@@ -3,7 +3,7 @@
     <div class="px-4 p-6  flex items-center max-w-7xl mx-auto border-b border-gray-600 justify-between">
       <div class="flex items-center">
         <img src="@/assets/logo.svg" alt="" srcset="" class="w-10 h-10" />
-        <div class="font-bold text-2xl text-white ml-4">Vue Headless UI</div>
+        <div class="font-bold text-xl md:text-2xl text-white ml-4 ">Vue Headless UI</div>
       </div>
       <div class="md:hidden">
         <headless-button
